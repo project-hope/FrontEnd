@@ -10,11 +10,11 @@ const Routes = ({history}) => (
   <Router>
     <div>
       <Route exact path="/" component={test} />
-      {/* <Route path="divorce" component={<div>Divorce</div>}/>
-      <Route path="disability" component={<div>disability</div>}/> */}
+      <Route path="divorce" component={<div>Divorce</div>}/>
+      {/* <Route path="disability" component={<div>disability</div>}/> */}
     </div>
   </Router>);
 
 export default Routes;
 
-const test = () => (<div>TEST</div>);
+const test = () => (<div>Index</div>);

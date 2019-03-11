@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Routes from './webpack_src/Routes';
+import App from './webpack_src/App';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
+
   ReactDOM.render(
-    <Routes />, root);
-});
+    <App />, root);
+  }
+);

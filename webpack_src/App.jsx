@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Disability from './disability/Disability';
+import Disability from './disability/Disability.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,10 +11,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log("App");
-    return (
-      <Disability />
-    );
+    return (< Disability / >);
   }
 }
 

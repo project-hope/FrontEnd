@@ -17,20 +17,12 @@ class App extends React.Component {
       showDivorce: false,
       chartVisible: false,
       portfolioChartData: {
-        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        series: [
-          [12, 9, 7, 8, 5],
-          [2, 1, 3.5, 7, 3],
-          [1, 3, 4, 5, 6]
-        ]
+        labels: [],
+        series: []
       },
       incomeChartData: {
-        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        series: [
-          [12, 9, 7, 8, 5],
-          [2, 1, 3.5, 7, 3],
-          [1, 3, 4, 5, 6]
-        ]
+        labels: [],
+        series: []
       },
     };
 
@@ -44,6 +36,7 @@ class App extends React.Component {
   returnHome(){
     this.setState({showDivorce: false});
     this.setState({showDisability: false});
+    this.setState({chartVisible: false});
   }
 
   handleDisability(){
@@ -57,8 +50,6 @@ class App extends React.Component {
   }
 
   handleDisabilitySubmit(data){
-    console.log("SUBMIT DISABILITY")
-    console.log(data)
     this.setState({portfolioChartData: {
       labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
       series: [
@@ -79,8 +70,6 @@ class App extends React.Component {
   }
 
   handleDivorceSubmit(data){
-    console.log("SUBMIT DIVORCE")
-    console.log(data)
     this.setState({portfolioChartData: {
       labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
       series: [
@@ -101,23 +90,19 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.chartVisible)
-    console.log("STATE")
-    console.log(this.state.showDisability)
-    console.log(this.state.showDivorce)
     return (
       <div styleName="background">
         <div styleName="header">
           <h1 onClick={this.returnHome}>Project Hope</h1>
-          {!this.state.showDivorce && !this.state.showDisability &&
+        </div>
+        
+        <div styleName="body">
+        {!this.state.showDivorce && !this.state.showDisability &&
             <div>
               <button onClick={this.handleDisability}>Disability</button>
               <button onClick={this.handleDivorce}>Divorce</button>
             </div>
           }
-        </div>
-        
-        <div styleName="body">
           {this.state.showDisability && !this.state.showDivorce &&
             < DisabilityForm onSubmit={this.handleDisabilitySubmit} />
           }

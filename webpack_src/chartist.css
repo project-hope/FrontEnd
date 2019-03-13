@@ -38,7 +38,7 @@
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  overflow: visible
+  overflow: visible;
 }
 
 .ct-chart-donut .ct-label,
@@ -904,3 +904,7 @@
 svg {
   overflow: visible;
 }
+
+/* .ct-chart {
+  height: 50%;
+} */

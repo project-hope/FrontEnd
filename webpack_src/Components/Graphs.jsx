@@ -89,12 +89,16 @@ class Graphs extends React.Component{
     return(
       <div>
         { this.props.chartVisible &&
-          <div styleName="graph">
-            <h2 styleName="heading">Portfolio Value</h2>
-            <ChartistGraph data={this.props.portfolioChartData} options={portfolioChartOptions} type={'Line'} />
+          <div styleName="graphs">
+            <div styleName="individualGraph">
+              <h2 styleName="heading">Portfolio Value</h2>
+              <ChartistGraph data={this.props.portfolioChartData} options={portfolioChartOptions} type={'Line'} />
             <br/>
-            <h2 styleName="heading">Annual Retirement Income</h2>
-            <ChartistGraph data={this.props.incomeChartData} options={incomeChartOptions} type={'Line'} />
+            </div>
+            <div styleName="individualGraph">
+              <h2 styleName="heading">Annual Retirement Income</h2>
+              <ChartistGraph data={this.props.incomeChartData} options={incomeChartOptions} type={'Line'} />
+            </div>
           </div>
         }
       </div>

@@ -8,14 +8,15 @@ class Disability extends React.Component {
       .handleChange
       .bind(this);
     this.state = {
-      currentAge: 40,
-      retirementAge: 0,
-      currentSavings: 0,
-      immediateExpenses: 0,
-      additionalSavings: 0,
-      monthlyExpensesAmount: 0,
-      monthlyExpensesStart: 0,
-      monthlyExpensesEnds: 0,
+      currentAge: undefined,
+      retirementAge: undefined,
+      currentSavings: undefined,
+      immediateExpenses: undefined,
+      additionalSavings: undefined,
+      monthlyExpensesAmount: undefined,
+      monthlyExpensesStart: undefined,
+      monthlyExpensesEnds: undefined,
+      investmentChoice: undefined,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -131,6 +132,17 @@ class Disability extends React.Component {
               value={monthlyExpensesEnds}
               placeholder='Monthly Expenses End Year'
               onChange={this.handleChange('monthlyExpensesEnds')}/>
+          </label>
+          <label styleName="label">
+            Investment Choice: 
+            <input 
+              styleName="input" 
+              type="range" 
+              min="1" 
+              max="9" 
+              value={this.state.investmentChoice} 
+              onChange={this.handleChange} 
+            />
           </label>
           <br/>
           <button styleName="button" type='submit'>Submit</button>

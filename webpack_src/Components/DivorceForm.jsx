@@ -6,11 +6,11 @@ class Divorce extends React.Component{
     super(props);
     this.state = {
       currentAge: undefined,
-      earningLevel: "",
-      currentSavingsBeforeDivorce: 0,
-      currentSavingsAfterDivorce: 0,
-      additionalAnnualSavings: 0,
-      investmentChoice: "",
+      earningLevel: undefined,
+      currentSavingsBeforeDivorce: undefined,
+      currentSavingsAfterDivorce: undefined,
+      additionalAnnualSavings: undefined,
+      investmentChoice: undefined,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -35,32 +35,69 @@ class Divorce extends React.Component{
         <form styleName="form" onSubmit={this.handleSubmit}>
           <label styleName="label">
             Current Age: 
-            <input styleName="input" type="number" value={this.state.currentAge} onChange={this.handleChange} />
+            <input 
+              styleName="input" 
+              placeholder="Current Age"
+              type="number" 
+              value={this.state.currentAge} 
+              onChange={this.handleChange} 
+            />
           </label>
           <br/>
           <label styleName="label">
             Earning Level: 
-            <input styleName="input" type="number" value={this.state.earningLevel} onChange={this.handleChange} />
+            <input 
+              styleName="input" 
+              placeholder="Earning Level"
+              type="number" 
+              value={this.state.earningLevel} 
+              onChange={this.handleChange} 
+            />
           </label>
           <br/>
           <label styleName="label">
             Current Savings Before Divorce: 
-            <input styleName="input" type="number" value={this.state.currentSavingsBeforeDivorce} onChange={this.handleChange} />
+            <input 
+              styleName="input" 
+              placeholder="Savings Before Divorce"
+              type="number" 
+              value={this.state.currentSavingsBeforeDivorce} 
+              onChange={this.handleChange} 
+            />
           </label>
           <br/>
           <label styleName="label">
             Current Savings After Divorce: 
-            <input styleName="input" type="number" value={this.state.currentSavingsAfterDivorce} onChange={this.handleChange} />
+            <input 
+              styleName="input" 
+              placeholder="Savings After Divorce"
+              type="number" 
+              value={this.state.currentSavingsAfterDivorce} 
+              onChange={this.handleChange} 
+            />
           </label>
           <br/>
           <label styleName="label">
             Additional Annual Savings: 
-            <input styleName="input" type="number" value={this.state.additionalAnnualSavings} onChange={this.handleChange} />
+            <input 
+              styleName="input" 
+              placeholder="Additional Annual Savings"
+              type="number" 
+              value={this.state.additionalAnnualSavings} 
+              onChange={this.handleChange} 
+            />
           </label>
           <br/>
           <label styleName="label">
             Investment Choice: 
-            <input styleName="input" type="number" value={this.state.investmentChoice} onChange={this.handleChange} />
+            <input 
+              styleName="input" 
+              type="range" 
+              min="1" 
+              max="9" 
+              value={this.state.investmentChoice} 
+              onChange={this.handleChange} 
+            />
           </label>
           <br/>
           <button styleName="button" type='submit'>Submit</button>

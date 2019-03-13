@@ -1,0 +1,19 @@
+.background {
+  background-color: darkblue;
+  height: 100%;
+  width: 100%;
+  /* display: flex; */
+  /* flex-direction: row */
+}
+
+.header {
+  background-color: lightblue;
+  height: 40px;
+  width: 100%;
+  border-bottom: 10px solid white;
+}
+
+.body {
+  height: calc(100% - 50px);
+  width: 100%;
+}

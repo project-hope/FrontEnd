@@ -1,8 +1,5 @@
 import React from 'react';
-import Chartist from 'chartist';
-import ctAxisTitle from 'chartist-plugin-axistitle'
-import 'chartist-plugin-legend'
-import './Disability.css';
+import '../css/form.css';
 
 class Disability extends React.Component {
   constructor(props) {
@@ -11,16 +8,27 @@ class Disability extends React.Component {
       .handleChange
       .bind(this);
     this.state = {
-      currentAge: 40
+      currentAge: 40,
+      retirementAge: 0,
+      currentSavings: 0,
+      immediateExpenses: 0,
+      additionalSavings: 0,
+      monthlyExpensesAmount: 0,
+      monthlyExpensesStart: 0,
+      monthlyExpensesEnds: 0,
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    this.makeChart();
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.onSubmit(this.state)
+
   }
 
   handleChange(field) {
@@ -28,60 +36,6 @@ class Disability extends React.Component {
     return function (e) {
       storedThis.setState({[field]: e.target.value});
     };
-  }
-
-  makeChart() {
-    new Chartist.Line('.ct-chart', {
-      labels: [
-        40, 41, 42, 43, 44
-      ],
-      series: [
-        [
-          1, 2, 3, 4, 5
-        ],
-        [
-          1, 1, 1.5, 2, 2.5
-        ],
-        [1, 3, 4.5, 6, 7.5]
-      ]
-    }, {
-      fullWidth: true,
-      chartPadding: {
-        right: 40
-      },
-      axisY: {
-        onlyInteger: true,
-        offset: 20
-      },
-      plugins: [
-        ctAxisTitle({
-          axisY: {
-            axisTitle: 'Portfolio Balance($)',
-            axisClass: 'ct-axis-title',
-            offset: {
-              x: 0,
-              y: 0
-            },
-            textAnchor: 'middle',
-            flipTitle: true
-          },
-          axisX: {
-            axisTitle: 'Age',
-            axisClass: 'ct-axis-title',
-            offset: {
-              x: 0,
-              y: 40
-            },
-            textAnchor: 'middle'
-          }
-        }),
-        Chartist
-          .plugins
-          .legend({
-            legendNames: ['Average', 'Lower Bound', 'Upper Bound']
-          })
-      ]
-    });
   }
 
   render() {
@@ -97,7 +51,7 @@ class Disability extends React.Component {
     } = this.state;
 
     return (
-      <div styleName="background">
+      <div>
         <form styleName="form" onSubmit={this.handleSubmit}>
           <label styleName="label">
             Current Age
@@ -179,14 +133,11 @@ class Disability extends React.Component {
               onChange={this.handleChange('monthlyExpensesEnds')}/>
           </label>
           <br/>
+          <button styleName="button" type='submit'>Submit</button>
         </form>
-        <div styleName="graph">
-          < div className="ct-chart ct-golden-section" id="chart1"></div>
-        </div>
       </div>
     );
   }
-
 }
 
 export default Disability;
